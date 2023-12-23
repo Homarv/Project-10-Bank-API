@@ -28,10 +28,10 @@ const Navbar = () => {
             setData(data.body)
           } else {
             // Gérez les erreurs de connexion
-            console.error('Échec de la connexion');
+            console.log('Échec de la connexion');
           }
         } catch (error) {
-          console.error('Erreur lors de la connexion', error);
+          console.log('Erreur lors de la connexion', error);
         }
       }
     }

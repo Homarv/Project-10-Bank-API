@@ -24,7 +24,7 @@ export const persistor = persistStore(store);
 // sauvegarder le token
 export const saveToken = (token) => ({ type: "saveToken", payload: token });
 
-// redémarrer le jeu
+// détruire le token 
 export const destroyToken = () => ({ type: "destroyToken" });
 
 // le reducer contient la logique

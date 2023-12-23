@@ -14,7 +14,7 @@ const FormSignIn = () => {
 
     const email = usernameRef.current.value;
     const password = passwordRef.current.value;
-    console.log(JSON.stringify({ email, password }));
+    //console.log(JSON.stringify({ email, password }));
     
     try {
       const response = await fetch('http://localhost:3001/api/v1/user/login', {
@@ -24,26 +24,26 @@ const FormSignIn = () => {
         },
         body: JSON.stringify({ email, password }),
       });
-      console.log(response)
+      //console.log(response)
 
       if (response.ok) {
         const data = await response.json();
-        console.log(data)
+        //console.log(data)
         const authToken = data.body.token;
-        console.log(authToken)
+        //console.log(authToken)
         //sauvegarder le token dans le store 
         store.dispatch(saveToken(authToken))
-        console.log(store.getState().token)
+        //console.log(store.getState().token)
 
         // Rediriger l'utilisateur vers la page user
         navigate('/user');
 
       } else {
         // Gérez les erreurs de connexion 
-        console.error('Échec de la connexion');
+        console.log('Échec de la connexion');
       }
     } catch (error) {
-      console.error('Erreur lors de la connexion', error);
+      console.log('Erreur lors de la connexion', error);
     }
   };
 

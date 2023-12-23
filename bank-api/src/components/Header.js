@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { store } from '../service/store';
 
 const Header = () => {
@@ -20,13 +20,13 @@ const Header = () => {
         });
         if (response.ok) {
           const data = await response.json();
-          setData(data.body)
+          setData(data.body);
         } else {
           // Gérez les erreurs de connexion
-          console.error('Échec de la connexion');
+          console.log('Échec de la connexion');
         }
       } catch (error) {
-        console.error('Erreur lors de la connexion', error);
+        console.log('Erreur lors de la connexion', error);
       }
     }
     authenticateUser();
@@ -41,7 +41,8 @@ const Header = () => {
     e.preventDefault();
     const firstName = firstNameRef.current.value;
     const lastName = lastNameRef.current.value;
-    console.log(JSON.stringify({ firstName, lastName }));
+    //console.log(JSON.stringify({ firstName, lastName }));
+    toggleForm()
     try {
       const response = await fetch('http://localhost:3001/api/v1/user/profile', {
         method: 'PUT',
@@ -51,47 +52,47 @@ const Header = () => {
         },
         body: JSON.stringify({ firstName, lastName }),
       });
-      console.log(response)
+      //console.log(response);
       if (response.ok) {
         const data = await response.json();
-        setData(data.body)
+        setData(data.body);
       } else {
-        // Gérez les erreurs de connexion 
-        console.error('Échec de la connexion');
+        // Gérez les erreurs de connexion
+        console.log('Échec de la connexion');
       }
     } catch (error) {
-      console.error('Erreur lors de la connexion', error);
+      console.log('Erreur lors de la connexion', error);
     }
   };
 
   return (
     <div className="header">
       {displayForm ? (
-        <form onSubmit={handleSubmit} className ="edit-name">
+        <form className="edit-name">
           <h1>Welcome back</h1>
-          <div className='edit-name__container'>
-            <div className='edit-name__container-left'> 
+          <div className="edit-name__container">
+            <div className="edit-name__container-left">
               <div className="input-wrapper">
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   ref={firstNameRef}
                   placeholder={data.firstName}
                 />
               </div>
-              <button type="submit" className="edit-button" onClick={toggleForm}>
+              <button type="submit" className="edit-button" onClick={handleSubmit}>
                 Save
               </button>
             </div>
-        
-            <div className='edit-name__container-right'> 
+    
+            <div className="edit-name__container-right">
               <div className="input-wrapper">
-                <input 
+                <input
                   type="text"
                   ref={lastNameRef}
                   placeholder={data.lastName}
                 />
               </div>
-              <button className="edit-button" onClick={toggleForm}>
+              <button type ="button" className="edit-button" onClick={toggleForm}>
                 Cancel
               </button>
             </div>
@@ -99,9 +100,10 @@ const Header = () => {
         </form>
       ) : (
         <div>
-          <h1>Welcome back<br></br>
-          <span>{data.firstName} {data.lastName}!</span></h1>
-          <button className="edit-button" onClick={toggleForm}>Edit Name</button>
+          <h1>Welcome back<br />
+            <span>{data.firstName} {data.lastName}!</span>
+          </h1>
+          <button type="button" className="edit-button" onClick={toggleForm}>Edit Name</button>
         </div>
       )}
     </div>
