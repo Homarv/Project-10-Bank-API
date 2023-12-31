@@ -39,7 +39,6 @@ const Navbar = () => {
   }, [authToken]);
 
   const handleLogout = () => {
-    // Exécutez votre action pour détruire le token
     store.dispatch(destroyToken());
   };
 
