@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/images/argentBankLogo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle, faArrowRightFromBracket} from '@fortawesome/free-solid-svg-icons'; 
-import { store } from '../service/store';
-import { destroyToken } from '../service/store';
+import { store } from '../store/index';
+import { destroyToken } from '../actions/authActions';
 import React, { useState, useEffect} from 'react';
 
 const Navbar = () => {

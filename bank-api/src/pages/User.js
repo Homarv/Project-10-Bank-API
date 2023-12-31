@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Accounts from '../components/Accounts';
-import { store } from '../service/store';
+import { store } from '../store/index';
 import { useNavigate } from 'react-router-dom';
 
 const User = () => {

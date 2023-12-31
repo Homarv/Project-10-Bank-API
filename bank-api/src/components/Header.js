@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { store } from '../service/store';
+import { store } from '../store/';
 
 const Header = () => {
   const [displayForm, setDisplayForm] = useState(false);

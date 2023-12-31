@@ -1,7 +1,8 @@
 import React, { useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'; 
-import { saveToken, store } from '../service/store';
+import { store } from '../store/index';
+import { saveToken } from '../actions/authActions';
 import { useNavigate } from 'react-router-dom';
 
 const FormSignIn = () => {
