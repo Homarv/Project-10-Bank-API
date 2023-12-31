@@ -9,7 +9,7 @@ const Header = () => {
   const firstNameRef = useRef(null);
 
   useEffect(() => {
-    async function authenticateUser() {
+    async function getUser() {
       try {
         const response = await fetch('http://localhost:3001/api/v1/user/profile', {
           method: 'POST',
@@ -21,6 +21,7 @@ const Header = () => {
         if (response.ok) {
           const data = await response.json();
           setData(data.body);
+          console.log(data.body)
         } else {
           // Gérez les erreurs de connexion
           console.log('Échec de la connexion');
@@ -29,7 +30,7 @@ const Header = () => {
         console.log('Erreur lors de la connexion', error);
       }
     }
-    authenticateUser();
+    getUser();
   }, [authToken]);
 
   const toggleForm = () => {

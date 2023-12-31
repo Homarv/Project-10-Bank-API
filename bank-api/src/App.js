@@ -8,9 +8,9 @@ function App() {
   return (
     <BrowserRouter>
     <Routes>
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<SignIn />} />
-        <Route path="/user" element={<User />} />
+        <Route path="/profil" element={<User />} />
         {/* path="*" fonctionne si jamais l'url ne correspond à rien de dééclaré au dessus  */}
         <Route path="*" element={<PageError />} />
     </Routes>
