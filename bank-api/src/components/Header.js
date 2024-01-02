@@ -24,7 +24,6 @@ const Header = () => {
 				if (response.ok) {
 					const data = await response.json();
 					setData(data.body);
-					console.log(data.body);
 				} else {
 					// Gérez les erreurs de connexion
 					console.log("Échec de la connexion");
