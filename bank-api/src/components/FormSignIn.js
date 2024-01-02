@@ -37,7 +37,7 @@ const FormSignIn = () => {
 				//console.log(store.getState().token)
 
 				// Rediriger l'utilisateur vers la page user
-				navigate("/user");
+				navigate("/profil");
 			} else {
 				// Gérez les erreurs de connexion
 				console.log("Échec de la connexion");
